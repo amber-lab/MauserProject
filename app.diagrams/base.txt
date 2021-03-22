@@ -1,0 +1,26 @@
+
+
+pedido de scraping
+
+instância de Scraper
+
+	configuração de scraper
+		download do site
+			url = str
+			search_func = str
+		links de search box
+			search_box = array(tipo_de_procura : nome da tag/id)
+			search_box_link_level = str 		
+				# nivel de hierarquia html em elementos; nome separado por virgula 
+				#exemplo: ul;li;div;			
+				#tag <a> é desnecessária
+		nomes de tabelas e correspondencia
+			table_columns = array('nome_coluna_sql':'nome_tabela')   #exemplo 'description' : 'tr-description')
+	
+	buscar links da searchbox inicial
+	
+	seguir links
+	
+	para cada link
+		para cada página de link
+			buscar dados de tabelas
