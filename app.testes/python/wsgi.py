@@ -21,8 +21,14 @@ def hello(name=None):
 @app.route('/login', methods=['POST', 'GET'])
 def login():
 	error = None
+	print("\n", dir(request), "\n\n")
 	if request.method == 'POST':
 		input_json = request.get_json()
 		print(input_json)
 		return_json = {'answer':'LOGGED'}
 		return jsonify(return_json)
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+	print('\n', dir(request.files), '\n')
+	

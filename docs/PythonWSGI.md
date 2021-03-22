@@ -1,5 +1,6 @@
 # Ferramentas
 	- Flask: WSGI
+	- Jinja: template engine
 
 # Termos
 	- WSGI: Web Server Gateway Interface
@@ -114,3 +115,10 @@ from flask import render_template
 def hello(name=None):
 	return render_template('hello.html', name=name)
 ``` 
+
+### Request Object
+The request object has data related to the request operation such as form and json data. It's available by using the method attribute when routing. If keys from request.form is not avaiable an HTTP 400 error is returned. To access parameters submitted in the URL use request.args.get('key')
+
+### File Uploads
+
+
