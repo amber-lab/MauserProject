@@ -1,2 +1,2 @@
-# MouserProject
+# MauserProject
 WSGI and Scraping
