@@ -30,5 +30,6 @@ def login():
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
-	print('\n', dir(request.files), '\n')
-	
+	if request.method == 'POST':
+		dir(request)
+	return render_template('file_upload_template.html')
