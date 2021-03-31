@@ -24,3 +24,8 @@ instância de Scraper
 	para cada link
 		para cada página de link
 			buscar dados de tabelas
+
+
+required data:
+	main url
+	site search function name

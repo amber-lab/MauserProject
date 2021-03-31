@@ -1,0 +1,63 @@
+RESTful web service
+
+Como exemplo  pesquisa por ws2812
+
+    => GET /search?q=ws2812
+    <= 200 application/json $response_body
+
+     
+
+    $response_body = {"mouser": [$product, ...], "digikey": [$product, ...], "farnell": [$product, ...]}
+    $product = {
+      "sku": string,
+      "name": string, 
+
+      "stock": int,
+      "stock_literal": null,
+      "restock_date": date,
+      "prices": [$price, ...],
+      "discontinued": bool,
+      "multiplicity": int,
+      "unit": string,
+      "categories": multiline string, // each category per line
+      "description": multiline string,
+      "manufacturer": string,
+      "manufacturer_sku": string,
+      "dangerous": bool,
+      "weight": int, // in grams
+      "url": string,
+      "made_in": string,
+      "supplied_qtt": null,
+      "cn_code": null,
+      "pvps": null,
+      "images": null,
+      "documents": null,
+    }
+
+     
+
+    $price = {"moq": integer, "amount": double}
+
+     
+
+    => GET /search
+    <= 204
+
+
+https://pt.mouser.com/
+https://pt.mouser.com/Search/Refine?Keyword=ws2812
+
+https://pt.farnell.com/
+https://pt.farnell.com/search?st=ws2812
+
+https://www.digikey.pt/
+https://www.digikey.pt/products/pt?keywords=ws2812
+
+Para uma primeira versão basta o serviço retornar os dados, sem gravar na base de dados, e apenas um dos fornecedores.
+Nem todos os fornecedores têm todos os dados requiridos, nesses retorna null (aka desconhecido).
+Tem em atenção os espaçamentos a mais antes e depois das strings que poderão existir em alguns sites (exemplo: "    raspberry  "), esses espaçamentos devem ser removidos.
+Já as mudanças de linha que não na descrição, caso existam (raro), devem ser convertidas para um espaço.
+Deves também validar os campos, por exemplo um peso deve ser um número, o url deve estar bem formatado, etc. Depois envio-te as regras de validação.
+
+O nosso sistema vive na cloud da google, o serviço ficará alojado na "App Engine" deles, se quiseres podes ver alguns detalhes em como se faz "shipping" do código, mas é extra.
+Eles parecem simpatizar com o Flask, framework que facilita a construção em REST.

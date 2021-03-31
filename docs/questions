@@ -1,2 +1,2 @@
-O array no mail corresponde as colunas da tabela SQL?
-As colunas da tabela vao ser sempre iguais?
+requesições demoram cerca de 2.5s por página, em alguns casos de pesquisa são centenas de paginas.
+seria melhor fazer scraping passivo para uma outra bases de dados e no momento da request da aplicação procurar nessa BD?
